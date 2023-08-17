@@ -27,5 +27,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+Route::get('/register', 'RegistrationController@index')->name('register');
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+
 
 require __DIR__.'/auth.php';
