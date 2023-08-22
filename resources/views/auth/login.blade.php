@@ -77,11 +77,13 @@
                 @csrf
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
+                {{-- <input type="email" name="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email"> --}}
                 <input
-                  type="text"
-                  class="form-control"
+                  type="email"
+                  class="form-control form-control-lg"
                   name="email"
                   placeholder="Enter your email"
+                  aria-label="Email"
                   autofocus
                 />
 
@@ -94,12 +96,14 @@
                   </a>
                 </div>
                 <div class="input-group input-group-merge">
+                    {{-- <input type="password" name="password" class="form-control form-control-lg" placeholder="Password" aria-label="Password"> --}}
                   <input
                     type="password"
-                    class="form-control"
+                    class="form-control form-control-lg"
                     name="password"
                     placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                     aria-describedby="password"
+                    aria-label="Password"
                   />
                   <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                 </div>
@@ -111,7 +115,8 @@
                 </div>
               </div>
               <div class="mb-3">
-                <button class="btn btn-primary d-grid w-100" type="submit" value="signin">Sign in</button>
+                {{-- <input type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0" value="Sign in"> --}}
+                <button class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0" type="submit" value="Sign in">Sign in</button>
               </div>
             </form>
 
