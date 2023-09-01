@@ -23,9 +23,11 @@ Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(func
     Route::get('/', function () {
         return view('back/dashboard');
     })->name('index');
-    Route::get('/', function () {
+
+    Route::get('/datamgr', function () {
         return view('back/datamanagement');
     })->name('datamgr');
+
 });
 
 Route::middleware('auth')->group(function () {
