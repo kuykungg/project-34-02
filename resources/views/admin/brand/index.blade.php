@@ -16,6 +16,9 @@
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+                    @if (!$brand->isEmpty())
+
+
                         @foreach ($brand as $b)
                         <tr>
                             <td>{{$b->brand_id}}</td>
@@ -28,7 +31,13 @@
                             </td>
                         </tr>
                         @endforeach
-
+                    @else
+                    <tr>
+                        <td colspan="5" class="text-center text-danger" >
+                            ไม่พบข้อมูล
+                        </td>
+                    </tr>
+                    @endif
                     </tbody>
                 </table>
             </div>

@@ -87,8 +87,11 @@ class ProductController extends Controller
     );
    }
 
-   public function update(Request $request, $product_id){
+   public function update(Request $request, $product_id)
+   {
+
     $pro = product::find($product_id);
+
     $request->validate(
         [
             'name' => 'required',
@@ -106,6 +109,14 @@ class ProductController extends Controller
     {
         $fileName = time() . '.' . $request->image->extension();
         $image = $request->image->storeAs('product_image', $fileName);
+
+        $file_path = storage_path('app/') . $pro->image;
+
+        if(file_exists($file_path))
+        {
+            unlink($file_path);
+        }
+
     }else{
         $image = $pro->image;
     }
@@ -121,11 +132,20 @@ class ProductController extends Controller
 
 
     return redirect()->route('admin.product.index');
+
    }
 
-   public function delete($product_id){
+   public function delete($product_id)
+   {
     $d = Product::find($product_id);
+    $file_path = storage_path('app/') . $d->image;
+
+    if(file_exists($file_path))
+    {
+        unlink($file_path);
+    }
     $d->delete();
     return redirect()->route('admin.product.index');
    }
+
 }

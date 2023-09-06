@@ -18,33 +18,40 @@
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-
-                        @foreach ($products as $product)
+                        @if (!$products->isEmpty())
+                            @foreach ($products as $product)
+                                <tr>
+                                    <td>
+                                        {{ $product->product_id }}
+                                    </td>
+                                    <td>
+                                        {{ $product->name }}
+                                    </td>
+                                    <td>
+                                        {{ $product->price }}
+                                    </td>
+                                    <td>
+                                        {{ $product->detail }}
+                                    </td>
+                                    <td>{{ $product->brand_id }}</td>
+                                    <td>
+                                        <a href="{{ asset($product->image) }}">
+                                            ดูรูป
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{{url('admin/product/edit/'.$product->product_id)}}" class="btn btn-warning">edit</a>
+                                        <a href="{{url('admin/product/delete/'.$product->product_id)}}" class="btn btn-danger">delete</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @else
                             <tr>
-                                <td>
-                                    {{ $product->product_id }}
-                                </td>
-                                <td>
-                                    {{ $product->name }}
-                                </td>
-                                <td>
-                                    {{ $product->price }}
-                                </td>
-                                <td>
-                                    {{ $product->detail }}
-                                </td>
-                                <td>{{ $product->brand_id }}</td>
-                                <td>
-                                    <a href="{{ asset($product->image) }}">
-                                        ดูรูป
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="{{url('admin/product/edit/'.$product->product_id)}}" class="btn btn-warning">edit</a>
-                                    <a href="{{url('admin/product/delete/'.$product->product_id)}}" class="btn btn-danger">delete</a>
+                                <td colspan="7" class="text-center text-danger" >
+                                    ไม่พบข้อมูล
                                 </td>
                             </tr>
-                        @endforeach
+                        @endif
 
 
                     </tbody>
