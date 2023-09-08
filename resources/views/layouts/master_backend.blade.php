@@ -142,13 +142,6 @@
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item">
-                <a href="{{ route('dashboard.index') }}" class="menu-link">
-                  <i class="menu-icon tf-icons bx bxs-dashboard"></i>
-
-                  <div data-i18n="Analytics">dashboard</div>
-                </a>
-              </li>
-            <li class="menu-item">
               <a href="{{url('admin/product/index')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx bxs-cart"></i>
 
