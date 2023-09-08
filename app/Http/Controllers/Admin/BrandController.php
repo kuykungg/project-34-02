@@ -18,9 +18,15 @@ class BrandController extends Controller
     }
 
     public function insert(Request $request){
-        $b = new Brand();
-        $b->name = $request->name;
-        $b->save();
+        $request->validate([
+            'name' => 'required'
+        ],
+    [
+        'name.required' => 'กรอกชื่อแบรน'
+    ]);
+    Brand::create([
+        'name' => $request->name
+    ]);
         return redirect('admin/brand/index');
     }
 
@@ -31,8 +37,15 @@ class BrandController extends Controller
 
     public function update(Request $request, $brand_id){
         $b = Brand::find($brand_id);
-        $b->name = $request->name;
-        $b->save();
+        $request->validate([
+            'name' => 'required'
+        ],
+    [
+        'name.required' => 'กรอกชื่อแบรน'
+        ]);
+        $b->update([
+            'name' => $request->name
+        ]);
         return redirect('admin/brand/index');
     }
     public function delete($brand_id){

@@ -16,6 +16,9 @@
                       <div class="col-sm-10">
                         <input type="text" name="name" class="form-control" id="basic-default-name" value="{{$b->name}}">
                       </div>
+                      @error('name')
+                        <span class="text-danger">{{$message}}</span><br/>
+                      @enderror
                     </div>
 
                     <div class="row justify-content-end">
